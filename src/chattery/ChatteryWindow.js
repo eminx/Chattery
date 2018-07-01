@@ -4,17 +4,35 @@ import PropTypes from 'prop-types';
 import { ChatteryBubble } from './ChatteryBubble';
 
 class ChatteryWindow extends React.Component {
-	render() {
+	constructor(props) {
+		super(props);
+		this.chatWindow = React.createRef();
+	}
 
+	componentDidMount() {
+		this.scrollBottom();
+	}
+
+	componentDidUpdate(prevProps, prevState, snapshot) {
+		this.scrollBottom();
+	}
+
+	scrollBottom = () => {
+		const chatWindow = this.chatWindow.current;
+		chatWindow.scrollTop = chatWindow.scrollHeight;
+	}
+
+	render() {
 		return (
 			<div className="chattery-window-container">
-				<div className="chattery-window">
+				<div className="chattery-window" ref={this.chatWindow}>
 					{this.props.messages.map((message, index) => (
 						<ChatteryBubble
 							key={message.content.substring(0,20) + index}
 							createdDate={message.createdDate}
 							sender={message.sender}
 							isSeen={false}
+							isFromMe={message.isFromMe}
 						>
 							{message.content}
 						</ChatteryBubble>
@@ -28,7 +46,6 @@ class ChatteryWindow extends React.Component {
 ChatteryWindow.propTypes = {
 	messages: PropTypes.array.isRequired,
 	meta: PropTypes.object,
-	onNewMessage: PropTypes.func.isRequired
 }
 
 export { ChatteryWindow };

@@ -3,15 +3,25 @@ import PropTypes from 'prop-types';
 
 class ChatteryBubble extends React.Component {
 	render() {
-
-		const bubbleClass = "talk-bubble tri-right round right-in"
+		const { sender, createdDate, isFromMe, children } = this.props;
+		let bubbleClass = 'talk-bubble tri-right round ';
+		let bubbleClassContainer = 'talk-bubble-container ';
+		if (isFromMe) {
+			bubbleClass += 'left-in';
+			bubbleClassContainer += 'left-in';
+		} else {
+			bubbleClass += 'right-in';
+			bubbleClassContainer += 'right-in';
+		}
 
 		return (
-			<div className={bubbleClass}>
-				<div className="talktext">
-					<p className="talktext-senderinfo">{this.props.sender}</p>
-					<p className="talktext-content">{this.props.children}</p>
-					<p className="talktext-dateinfo">{this.props.createdDate}</p>
+			<div className={bubbleClassContainer}>
+				<div className={bubbleClass}>
+					<div className="talktext">
+						<p className="talktext-senderinfo">{sender}</p>
+						<p className="talktext-content">{children}</p>
+						<p className="talktext-dateinfo">{createdDate}</p>
+					</div>
 				</div>
 			</div>
 		)

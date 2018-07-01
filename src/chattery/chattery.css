@@ -2,6 +2,7 @@
 	position: relative;
 	max-width: 50em;
 	margin: 1em auto;
+
 }
 
 .chattery-window-container {
@@ -15,7 +16,8 @@
 	display: flex;
 	flex-direction: column;
 	font-size: 14px;
-	max-height: 20em;
+	max-height: 80vh;
+	min-height: 400px;
   overflow-y: scroll;
   overflow-x: hidden;
 }
@@ -45,6 +47,11 @@
   box-sizing: border-box;
 }
 
+.chattery-input:focus {
+	border: 1px solid cornflowerblue;
+  outline: 0;
+}
+
 .chattery-submitbutton {
 	width:  60px;
 	height: 38px;
@@ -53,6 +60,19 @@
 	border-top-left-radius: 0;
   border-bottom-left-radius: 0;
   box-sizing: border-box;
+}
+
+.talk-bubble-container {
+	position: relative;
+	width: 100%;
+}	
+
+.talk-bubble.right-in {
+	float: right;
+}
+
+.talk-bubble.left-in {
+	float: left;
 }
 
 
@@ -69,7 +89,7 @@ body{
 
 /* CSS talk bubble */
 .talk-bubble {
-	margin: 10px;
+	margin: 20px;
   display: inline-block;
   position: relative;
 	width: 200px;
@@ -325,4 +345,24 @@ body{
 	font-size: .7em;
 	color: grey;
 	text-align: right;
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+    background: #f1f1f1; 
+}
+ 
+/* Handle */
+::-webkit-scrollbar-thumb {
+    background: #888; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+    background: #555; 
 }
