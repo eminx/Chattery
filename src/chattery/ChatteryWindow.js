@@ -30,7 +30,7 @@ class ChatteryWindow extends React.Component {
 						<ChatteryBubble
 							key={message.content.substring(0,20) + index}
 							createdDate={message.createdDate}
-							sender={message.sender}
+							senderUsername={message.senderUsername}
 							isSeen={false}
 							isFromMe={message.isFromMe}
 						>

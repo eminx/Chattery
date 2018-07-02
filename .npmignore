@@ -1,0 +1,10 @@
+# .npmignore 
+
+
+.storybook
+public
+src/stories
+src/App.js
+src/App.test.js
+registerServiceWorker.js
+.gitignore
