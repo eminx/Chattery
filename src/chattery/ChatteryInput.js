@@ -16,14 +16,9 @@ class ChatteryInput extends React.Component {
 		event.preventDefault();
 		const { inputValue } = this.state;
 		if (inputValue !== '') {
-			const message = {
-				content: inputValue,
-				sender: 'Emin',
-				createdDate: new Date()
-			}
 			this.setState({
 				inputValue: ''
-			}, () => this.props.onNewMessage(message));
+			}, () => this.props.onNewMessage(inputValue));
 		}
 	}
 
@@ -35,7 +30,7 @@ class ChatteryInput extends React.Component {
 					autoComplete="off"
 					onSubmit={this.onSubmit}
 				>
-	        <input autoFocus type="text" className="chattery-input" value={this.state.inputValue} onChange={this.onChange} />
+	        <input type="text" className="chattery-input" value={this.state.inputValue} onChange={this.onChange} />
 	        <input type="submit" className="chattery-submitbutton" value="Send" />
 	      </form>
 	    </div>

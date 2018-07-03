@@ -1,8 +1,5 @@
 .chattery-main-container {
-	position: relative;
 	max-width: 50em;
-	margin: 1em auto;
-
 }
 
 .chattery-window-container {
@@ -23,9 +20,7 @@
 }
 
 .chattery-inputform-container {
-	position: absolute;
-	bottom: -80px;
-	width: calc(100% - 40px);
+	width: 100%;
 	padding: 20px;
   background-color: #fff;
 }
